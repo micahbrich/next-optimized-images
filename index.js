@@ -26,7 +26,7 @@ const getOptimizerConfig = (config, defaultOptions = {}) => {
  * @returns {RegExp} RegExp matching all files which this plugin should handle
  */
 const getHandledFilesRegex = (mozjpeg, optipng, pngquant, gifsicle, svgo) => {
-  const handledFiles = [];
+  const handledFiles = ['mp4'];
 
   if (mozjpeg !== false) {
     handledFiles.push('jpe?g');
@@ -40,6 +40,7 @@ const getHandledFilesRegex = (mozjpeg, optipng, pngquant, gifsicle, svgo) => {
   if (svgo !== false) {
     handledFiles.push('svg');
   }
+  
 
   return new RegExp(`\.(${handledFiles.join('|')})$`, 'i');
 };
